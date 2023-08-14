@@ -17,9 +17,6 @@ require "Database/migration.php";
 </head>
 
 <body>
-
-
-
 <div class="container">
     <div class="row">
         <div class="col-8 mx-auto">
@@ -42,6 +39,7 @@ require "Database/migration.php";
                     </div>
                 <?php endif;?>
                 <input type="text" name="title" class="form-control my-3 border border-success" placeholder="add new todo">
+                <input type="text" name="Description" class="form-control my-3 border border-success" placeholder="add Description">
                 <input type="submit" value="Add" class="form-control btn btn-primary my-3 " placeholder="add new todo">
             </form>
         </div>
@@ -51,6 +49,7 @@ require "Database/migration.php";
                 <tr>
                     <th>#</th>
                     <th>Task</th>
+                    <th>Description</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -59,11 +58,12 @@ require "Database/migration.php";
                     <tr>
                         <td><?php echo $row['ID']; ?></td>
                         <td><?php echo $row['title']; ?></td>
+                        <td><?php echo $row['Description'];  ?></td>
                         <td>
                             <a href="handlers/delete-task.php?id=<?php echo $row['ID']; ?>" class="btn btn-danger">
                             <i class="fa-solid fa-trash-can"></i>
                             </a>
-                            <a href="handlers/Update-task.php?id=<?php echo $row['ID'];?>" class="btn btn-info">
+                            <a href="update.php?id=<?php echo $row['ID'];?>" class="btn btn-info">
                             <i class="fa-solid fa-edit"></i>
                             </a>
                         </td>
